@@ -17,7 +17,7 @@ def draw_polygons( polygons, screen, color ): #draw triangles
         draw_line(polygon[num][0], polygon[num][1], polygon[num+1][0], polygon[num+1][1], screen, color )
         draw_line(polygon[num+1][0], polygon[num+1][1], polygon[num+2][0], polygon[num+2][1], screen, color )
         draw_line(polygon[num+2][0], polygon[num+2][1], polygon[num][0], polygon[num][1], screen, color )
-        draw_lines(int(polygons[num:(num+3)]),screen, color)
+        #draw_lines(int(polygons[num:(num+3)]),screen, color)
         num+= 2
     
 
