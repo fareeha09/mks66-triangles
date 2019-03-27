@@ -13,15 +13,16 @@ def draw_polygons( polygons, screen, color ): #draw triangles
         return
     
     num = 0
-    while num < len(polygons) - 1:
-        draw_line(polygon[num][0], polygon[num][1], polygon[num+1][0], polygon[num+1][1], screen, color )
-        draw_line(polygon[num+1][0], polygon[num+1][1], polygon[num+2][0], polygon[num+2][1], screen, color )
-        draw_line(polygon[num+2][0], polygon[num+2][1], polygon[num][0], polygon[num][1], screen, color )
+    while num < len(polygons) - 2:
+        draw_line(int(polygons[num][0]), int(polygons[num][1]), int(polygons[num+1][0]), int(polygons[num+1][1]), screen, color )
+        draw_line(int(polygons[num+1][0]), int(polygons[num+1][1]), int(polygons[num+2][0]), int(polygons[num+2][1]), screen, color )
+        draw_line(int(polygons[num+2][0]), int(polygons[num+2][1]), int(polygons[num][0]), int(polygons[num][1]), screen, color )
         #draw_lines(int(polygons[num:(num+3)]),screen, color)
         num+= 2
     
 
-def add_box( polygons, x, y, z, width, height, depth ):
+def add_box( polygons
+                 , x, y, z, width, height, depth ):
     x1 = x + width
     y1 = y - height
     z1 = z - depth
@@ -30,14 +31,14 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon( polygons, x, y, z, x1, y, z, x1, y1, z)
     add_polygon( polygons, x, y, z, x, y1, z, x1, y1, z)
 
-    '''#side
+    #side
     add_polygon( polygons, x1, y, z, x1, y1, z, x1, y1, z1)
     add_polygon( polygons, x1, y, z, x1, y, z1, x1, y1, z1)
 
     #top
     add_polygon( polygons, x, y, z, x, y, z1, x1, y, z)
     add_polygon( polygons, x, y, z1, x1, y, z1, x1, y, z)
-'''
+
 def add_sphere(polygons, cx, cy, cz, r, step ):
     points = generate_sphere(cx, cy, cz, r, step)
 
